@@ -6,12 +6,12 @@
 
     <VerticalStackLayout Spacing="12" Padding="20">
 
-        <Image Source="logo.png" HeightRequest="100" />
+        <Image Source="lavaxpress.png" HeightRequest="100" />
         <Label x:Name="lblBienvenida" Style="{StaticResource estiloTitulo}" />
 
         <Button Text="👥  Clientes" Style="{StaticResource estiloBoton}" Clicked="btnClientes_Clicked" />
-        <Button Text="🧺  Nuevo pedido" Style="{StaticResource estiloBoton}" Clicked="btnProximamente_Clicked" />
-        <Button Text="📋  Pedidos" Style="{StaticResource estiloBoton}" Clicked="btnProximamente_Clicked" />
+        <Button Text="🧺  Nuevo pedido" Style="{StaticResource estiloBoton}" Clicked="btnNuevoPedido_Clicked" />
+        <Button Text="📋  Pedidos" Style="{StaticResource estiloBoton}" Clicked="btnPedidos_Clicked" />
         <Button Text="🚚  Entregas a domicilio" Style="{StaticResource estiloBoton}" Clicked="btnProximamente_Clicked" />
         <Button Text="Cerrar sesión" Style="{StaticResource estiloBoton}" BackgroundColor="Gray"
                 Clicked="btnCerrarSesion_Clicked" />

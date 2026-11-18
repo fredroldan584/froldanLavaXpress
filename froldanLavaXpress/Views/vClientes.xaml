@@ -2,11 +2,40 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="froldanLavaXpress.Views.vClientes"
-             Title="vClientes">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Title="Clientes">
+
+    <VerticalStackLayout Padding="10" Spacing="10">
+        <Label Text="CLIENTES" Style="{StaticResource estiloTitulo}" />
+
+        <ListView x:Name="listaClientes" ItemSelected="listaClientes_ItemSelected">
+            <!-- Encabezado -->
+            <ListView.Header>
+                <Grid ColumnDefinitions="60,120,120,110,*" Padding="10" BackgroundColor="#1E88E5">
+                    <Label Grid.Column="0" Text="Código"    FontAttributes="Bold" TextColor="White" />
+                    <Label Grid.Column="1" Text="Nombre"    FontAttributes="Bold" TextColor="White" />
+                    <Label Grid.Column="2" Text="Apellido"  FontAttributes="Bold" TextColor="White" />
+                    <Label Grid.Column="3" Text="Teléfono"  FontAttributes="Bold" TextColor="White" />
+                    <Label Grid.Column="4" Text="Dirección" FontAttributes="Bold" TextColor="White" />
+                </Grid>
+            </ListView.Header>
+
+            <!-- Filas -->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="60,120,120,110,*" Padding="10">
+                            <Label Grid.Column="0" Text="{Binding codigo}" />
+                            <Label Grid.Column="1" Text="{Binding nombre}" />
+                            <Label Grid.Column="2" Text="{Binding apellido}" />
+                            <Label Grid.Column="3" Text="{Binding telefono}" />
+                            <Label Grid.Column="4" Text="{Binding direccion}" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+
+        </ListView>
+
+        <Button Text="Agregar cliente" Style="{StaticResource estiloBoton}" Clicked="btnAgregar_Clicked" />
     </VerticalStackLayout>
 </ContentPage>

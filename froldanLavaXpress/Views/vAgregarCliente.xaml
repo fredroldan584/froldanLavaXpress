@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="froldanLavaXpress.Views.vAgregarCliente"
+             Title="Agregar cliente">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="NUEVO CLIENTE" Style="{StaticResource estiloTitulo}" />
+
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto" ColumnDefinitions="110,*" RowSpacing="10">
+            <Label Text="Nombre:" Grid.Row="0" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Entry x:Name="txtNombre" Grid.Row="0" Grid.Column="1" Placeholder="Nombre" />
+
+            <Label Text="Apellido:" Grid.Row="1" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Entry x:Name="txtApellido" Grid.Row="1" Grid.Column="1" Placeholder="Apellido" />
+
+            <Label Text="Teléfono:" Grid.Row="2" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Entry x:Name="txtTelefono" Grid.Row="2" Grid.Column="1" Placeholder="0997012453"
+                   Keyboard="Numeric" MaxLength="10" />
+
+            <Label Text="Dirección:" Grid.Row="3" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Entry x:Name="txtDireccion" Grid.Row="3" Grid.Column="1" Placeholder="Calle principal y secundaria" />
+        </Grid>
+
+        <Button Text="Guardar" Style="{StaticResource estiloBoton}" Clicked="btnGuardar_Clicked" />
+        <Button Text="Cancelar" Style="{StaticResource estiloBoton}" BackgroundColor="Gray" Clicked="btnCancelar_Clicked" />
+    </VerticalStackLayout>
+</ContentPage>

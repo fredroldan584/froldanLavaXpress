@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="froldanLavaXpress.Views.vNuevoPedido"
+             Title="Nuevo pedido">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Label Text="NUEVO PEDIDO" Style="{StaticResource estiloTitulo}" />
+
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="130,*" RowSpacing="10">
+
+                <Label Text="Cliente:" Grid.Row="0" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+                <Picker x:Name="pkCliente" Grid.Row="0" Grid.Column="1" Title="Seleccione el cliente"
+                        ItemDisplayBinding="{Binding nombreCompleto}" />
+
+                <Label Text="Fecha:" Grid.Row="1" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+                <DatePicker x:Name="dpFecha" Grid.Row="1" Grid.Column="1" Format="dd/MM/yyyy" />
+
+                <Label Text="Servicio:" Grid.Row="2" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+                <Picker x:Name="pkServicio" Grid.Row="2" Grid.Column="1" Title="Seleccione el servicio"
+                        SelectedIndexChanged="pkServicio_SelectedIndexChanged">
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:String>Lavado y secado ($0.50 lb)</x:String>
+                            <x:String>Secado ($0.25 lb)</x:String>
+                            <x:String>Edredón ($3.00 c/u)</x:String>
+                            <x:String>Cobija mediana ($2.50 c/u)</x:String>
+                            <x:String>Cobija pequeña ($2.00 c/u)</x:String>
+                            <x:String>Zapatos de color ($1.25 c/u)</x:String>
+                            <x:String>Zapatos blancos ($1.50 c/u)</x:String>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+
+                <!-- Este texto cambia a "Libras" o "Unidades" según el servicio -->
+                <Label x:Name="lblCantidad" Text="Cantidad:" Grid.Row="3" Grid.Column="0"
+                       Style="{StaticResource estiloEtiqueta}" />
+                <Entry x:Name="txtCantidad" Grid.Row="3" Grid.Column="1" Placeholder="0" Keyboard="Numeric" />
+
+                <!-- Botón calcular + total bloqueado (como el examen) -->
+                <Button Text="Calcular" Grid.Row="4" Grid.Column="0" Style="{StaticResource estiloBoton}"
+                        Clicked="btnCalcular_Clicked" />
+                <Entry x:Name="txtTotal" Grid.Row="4" Grid.Column="1" Placeholder="Total $" IsReadOnly="True" />
+            </Grid>
+
+            <Button Text="Guardar pedido" Style="{StaticResource estiloBoton}" Clicked="btnGuardar_Clicked" />
+            <Button Text="Cancelar" Style="{StaticResource estiloBoton}" BackgroundColor="Gray" Clicked="btnCancelar_Clicked" />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

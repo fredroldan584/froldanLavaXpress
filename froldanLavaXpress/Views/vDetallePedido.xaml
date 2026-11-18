@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="froldanLavaXpress.Views.vDetallePedido"
+             Title="Detalle del pedido">
+
+    <VerticalStackLayout Padding="20" Spacing="10">
+        <Label Text="DETALLE DEL PEDIDO" Style="{StaticResource estiloTitulo}" />
+
+        <!-- Etiqueta a la izquierda, dato a la derecha -->
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" ColumnDefinitions="120,*" RowSpacing="10">
+            <Label Text="N° pedido:" Grid.Row="0" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblCodigo" Grid.Row="0" Grid.Column="1" />
+
+            <Label Text="Cliente:" Grid.Row="1" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblCliente" Grid.Row="1" Grid.Column="1" />
+
+            <Label Text="Fecha:" Grid.Row="2" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblFecha" Grid.Row="2" Grid.Column="1" />
+
+            <Label Text="Servicio:" Grid.Row="3" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblServicio" Grid.Row="3" Grid.Column="1" />
+
+            <Label Text="Cantidad:" Grid.Row="4" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblCantidad" Grid.Row="4" Grid.Column="1" />
+
+            <Label Text="Total:" Grid.Row="5" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Label x:Name="lblTotal" Grid.Row="5" Grid.Column="1" FontAttributes="Bold" />
+
+            <Label Text="Estado:" Grid.Row="6" Grid.Column="0" Style="{StaticResource estiloEtiqueta}" />
+            <Picker x:Name="pkEstado" Grid.Row="6" Grid.Column="1">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Recibido</x:String>
+                        <x:String>Lavando</x:String>
+                        <x:String>Listo</x:String>
+                        <x:String>Entregado</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </Grid>
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button Text="Actualizar estado" Grid.Column="0" Style="{StaticResource estiloBoton}"
+                    Clicked="btnActualizar_Clicked" />
+            <Button Text="Eliminar" Grid.Column="1" Style="{StaticResource estiloBoton}"
+                    BackgroundColor="IndianRed" Clicked="btnEliminar_Clicked" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

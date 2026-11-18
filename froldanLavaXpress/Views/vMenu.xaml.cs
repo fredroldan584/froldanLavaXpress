@@ -24,4 +24,16 @@ public partial class vMenu : ContentPage
     {
         await Navigation.PopToRootAsync();
     }
+
+    // Evento del botón "Nuevo pedido" del menú
+    private async void btnNuevoPedido_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new vNuevoPedido());
+    }
+
+    // Abre la lista de pedidos
+    private async void btnPedidos_Clicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new vPedidos());
+    }
 }
